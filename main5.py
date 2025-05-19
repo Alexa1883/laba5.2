@@ -1,16 +1,26 @@
-class Car:
-    def __init__(self, make, model, year):
-        self.make = make
-        self.model = model
-        self.year = year
+class KgToPounds:
+    def __init__(self, kg):
+        self.__kg = kg
 
-my_car = Car("Toyota", "Camry", 2020)
+    def to_pounds(self):
+        return self.__kg * 2.205
 
-print(f"Марка: {my_car.make}")
-print(f"Модель: {my_car.model}")
-print(f"Год выпуска: {my_car.year}")
+    @property
+    def kg(self):
+        return self.__kg
 
+    @kg.setter
+    def kg(selfs, new_kg):
+        if isinstance(new_kg, (int, float)):
+            selfs.__kg = new_kg
+        else:
+            raise ValueError("Килограммы должны быть числом")
 
+weight = KgToPounds(10)
 
+print(f"{weight.kg} кг = {weight.to_pounds():.2f} фунтов")
 
-
+try:
+    weight.kg = "пять"
+except ValueError as e:
+    print(e)
