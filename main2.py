@@ -1,11 +1,19 @@
-class Car:
-    def __init__(self, make, model, year):
-        self.make = make
-        self.model = model
-        self.year = year
+class Animal:
+    def speak(self):
+        print("Животное издаёт звук")
 
-my_car = Car("Toyota", "Camry", 2020)
+class Dog(Animal):
+    def speak(self):
+        print("Гав-гав")
 
-print(f"Марка: {my_car.make}")
-print(f"Модель: {my_car.model}")
-print(f"Год выпуска: {my_car.year}")
+class Cat(Animal):
+    def speak(self):
+        print("Мяу-мяу")
+
+animal = Animal()
+dog = Dog()
+cat = Cat()
+
+animal.speak()
+dog.speak()
+cat.speak()
