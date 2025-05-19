@@ -1,16 +1,36 @@
-class Car:
-    def __init__(self, make, model, year):
-        self.make = make
-        self.model = model
-        self.year = year
+class Nikola:
+    __slots__ = ('name', 'age')
 
-my_car = Car("Toyota", "Camry", 2020)
+    def __init__(self, name, age):
+        self.age = age
+        if name == "Николай":
+            self.name = name
+        else:
+            self.name = f"Я не {name}, а Николай"
 
-print(f"Марка: {my_car.make}")
-print(f"Модель: {my_car.model}")
-print(f"Год выпуска: {my_car.year}")
+    def __setattr__(self, attr, value):
+        if attr not in self.__slots__:
+            raise AttributeError(f"Нельзя добавлять новые атрибуты в класс Nikola!")
+        object.__setattr__(self, attr, value)
+
+    def __str__(self):
+        return f"{self.name}, возраст: {self.age}"
+
+person1 = Nikola("Николай", 20)
+person2 = Nikola("Максим", 55)
+person3 = Nikola("Андрей", 70)
+
+print(person1)
+print(person2)
+print(person3)
+
+try:
+    person1.patronymic = "Иванович"
+except AttributeError as e:
+    print(e)
 
 
-
-
-
+try:
+    person1.greet = lambda: print("Привет!")
+except AttributeError as e:
+    print(e)
