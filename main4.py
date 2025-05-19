@@ -1,16 +1,18 @@
-class Car:
-    def __init__(self, make, model, year):
-        self.make = make
-        self.model = model
-        self.year = year
+class Soda:
+    def __init__(self, additive=None):
+        self.additive = additive
 
-my_car = Car("Toyota", "Camry", 2020)
+    def show_my_drink(self):
+        if self.additive:
+            print(f"Газировка и {self.additive}")
+        else:
+            print("Обычная газировка")
 
-print(f"Марка: {my_car.make}")
-print(f"Модель: {my_car.model}")
-print(f"Год выпуска: {my_car.year}")
+soda1 = Soda("малина")
+soda1.show_my_drink()
 
+soda2 = Soda()
+soda2.show_my_drink()
 
-
-
-
+soda3 = Soda("лимон")
+soda3.show_my_drink()
