@@ -1,9 +1,11 @@
-array = [0] * 15
+class Car:
+    def __init__(self, make, model, year):
+        self.make = make
+        self.model = model
+        self.year = year
 
-for i in range(14):
-    array[i] = int(input(f"Введите элемент {i + 1}: "))
+my_car = Car("Toyota", "Camry", 2020)
 
-array[14] = sum(array[:14])
-print("Элементы массива: ")
-for element in array:
-    print(element)
+print(f"Марка: {my_car.make}")
+print(f"Модель: {my_car.model}")
+print(f"Год выпуска: {my_car.year}")
